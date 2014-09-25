@@ -3,7 +3,8 @@ module SectionsRails
   require "sections_rails/section"
   require "sections_rails/railtie" #if defined?(Rails)
 
-  def section name, options = {}, &block
+  def section name, locals = {}, options = {}, &block
+    options[:locals] = locals
     SectionsRails::Section.new(name, self, options).render &block
   end
 end
