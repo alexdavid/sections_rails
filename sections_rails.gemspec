@@ -23,4 +23,12 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'coffee-rails'
   s.add_development_dependency 'sass-rails'
+
+  s.post_install_message = <<-END
+
+HEADS UP!
+SectionsRails 0.10 introduces a new and better API!
+
+For more information, see: https://github.com/kevgo/sections_rails
+END
 end

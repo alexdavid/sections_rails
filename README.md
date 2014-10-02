@@ -1,4 +1,8 @@
-# Sections for Rails [![Build Status](https://travis-ci.org/kevgo/sections_rails.png?branch=master)](https://travis-ci.org/kevgo/sections_rails) [![Code Climate](https://codeclimate.com/github/kevgo/sections_rails.png)](https://codeclimate.com/github/kevgo/sections_rails) [![Coverage Status](https://coveralls.io/repos/kevgo/sections_rails/badge.png?branch=master)](https://coveralls.io/r/kevgo/sections_rails) [![Dependency Status](https://gemnasium.com/kevgo/sections_rails.png)](https://gemnasium.com/kevgo/sections_rails)
+# Sections for Rails
+[![Build Status](https://travis-ci.org/kevgo/sections_rails.svg?branch=master)](https://travis-ci.org/kevgo/sections_rails)
+[![Code Climate](https://codeclimate.com/github/kevgo/sections_rails.svg)](https://codeclimate.com/github/kevgo/sections_rails)
+[![Coverage Status](https://img.shields.io/coveralls/kevgo/sections_rails.svg)](https://coveralls.io/r/kevgo/sections_rails?branch=master)
+[![Dependency Status](https://gemnasium.com/kevgo/sections_rails.svg)](https://gemnasium.com/kevgo/sections_rails)
 
 _A component-oriented infrastructure for the view layer of Ruby on Rails applications._
 
@@ -30,7 +34,7 @@ _Sections_rails_ allows to define these assets together, as a _section_, inside 
 To embed this menu into a page, simply do this in your view:
 
 ```erb
-<%= section :menu %>
+<%= section 'menu' %>
 ```
 
 This command inserts the partial as well as the JS and CSS files from _/app/sections/menu_ into the page.
@@ -77,7 +81,7 @@ They are used only when running _rake assets:precompile_ during deployment, shou
 To show the "hello_world" section created by the sections generator on a page:
 
 ```erb
-<%= section :hello_world %>
+<%= section 'hello_world' %>
 ```
 
 If your section renders itself completely in JavaScript, you can omit its partial file.
@@ -94,7 +98,7 @@ This convention can be overridden.
 ### Customizing the filename of the section's partial.
 
 ```erb
-<%= section :hello_world, partial: 'another_partial' %>
+<%= section name: 'hello_world', partial: 'another_partial' %>
 ```
 
 
@@ -103,7 +107,7 @@ This convention can be overridden.
 To tell the section to use `foobar.js` instead of `hello_world.js`:
 
 ```erb
-<%= section :hello_world, js: 'foobar.js' %>
+<%= section name: 'hello_world', js: 'foobar.js' %>
 ```
 
 
@@ -112,7 +116,7 @@ To tell the section to use `foobar.js` instead of `hello_world.js`:
 Sections can be told not not include their css or js file when rendered.
 
 ```erb
-<%= section :hello_world, css: false %>
+<%= section name: 'hello_world', css: false %>
 ```
 
 
@@ -129,7 +133,11 @@ Make sure you add custom extensions like *png* to the `config.assets.precompile`
 ### Providing parameters to the partial
 
 ```erb
-<%= section :hello_world, locals: { message: 'Greetings!' } %>
+<%# long form %>
+<%= section name: 'hello_world', locals: { message: 'Greetings!' } %>
+
+<%# short form %>
+<%= section 'hello_world', message: 'Greetings!' %>
 ```
 
 ### Inline blocks for sections.
@@ -137,7 +145,7 @@ Make sure you add custom extensions like *png* to the `config.assets.precompile`
 You can provide a block to the section:
 
 ```erb
-<%= section :info_window do %>
+<%= section 'info_window' do %>
   <h1>  inline  </h1>
   <div> block   </div>
   <p>   content </p>
@@ -193,3 +201,4 @@ Send unit-tested pull requests! The unit tests of this project are run using `ra
 
 * [Kevin Goslar](https://github.com/kevgo)
 * [Serge Zinin](https://github.com/zininserge)
+* [Alex David](https://github.com/alexdavid)
